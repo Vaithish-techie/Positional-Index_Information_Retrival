@@ -2,6 +2,7 @@
 Positional Intersect and Query Engine.
 Evaluates exact phrase queries and proximity (/k) queries using postings from secondary storage.
 """
+
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -20,7 +21,7 @@ def positional_intersect(
     Two-pointer positional intersection algorithm (Manning et al., Ch 2).
     Finds documents where term2 appears between 1 and k positions after term1.
     """
-    # Dry-run: p1=[(1, [1, 5])], p2=[(1, [2, 9])], k=1 -> diff=2-1=1 <= k -> MATCH!
+    # Dry-run: p1=[(1, [1, 5])], p2=[(1, [2, 9])], k=1 -> diff=2-1=1 <= k -> MATCH
     # Result:  [(1, [2])] (Doc 1 matched at pos 2, enabling multi-word phrase chaining)
     answer: PostingList = []
     i, j = 0, 0
@@ -117,8 +118,12 @@ def proximity_query(
     if w1 not in vocab or w2 not in vocab:
         return []
 
-    p1 = read_postings_from_disk(postings_file_path, vocab[w1]["offset"], vocab[w1]["byte_len"])
-    p2 = read_postings_from_disk(postings_file_path, vocab[w2]["offset"], vocab[w2]["byte_len"])
+    p1 = read_postings_from_disk(
+        postings_file_path, vocab[w1]["offset"], vocab[w1]["byte_len"]
+    )
+    p2 = read_postings_from_disk(
+        postings_file_path, vocab[w2]["offset"], vocab[w2]["byte_len"]
+    )
 
     p1_dict = {doc_id: pos_list for doc_id, pos_list in p1}
     p2_dict = {doc_id: pos_list for doc_id, pos_list in p2}

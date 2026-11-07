@@ -5,6 +5,7 @@
 - **Dataset**: 50 Tamil Wikipedia articles in a single XML collection file (`data/raw/tamil_wiki_corpus.xml`)
 - **Source Code**: Organized under `src/` directory
 - **Storage Strategy**: Main Memory (RAM) for Vocabulary Lexicon + Secondary Storage (Disk/SSD) for Postings Lists
+- **GitHub Repository**: [https://github.com/Vaithish-techie/Positional-Index_Information_Retrival](https://github.com/Vaithish-techie/Positional-Index_Information_Retrival)
 
 ---
 

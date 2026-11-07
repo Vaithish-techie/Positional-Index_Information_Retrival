@@ -2,6 +2,7 @@
 Positional Inverted Index Builder & Frequency Analytics.
 Builds the term -> {doc_id: [positions]} structure and computes DF & CF.
 """
+
 from typing import Dict, List, Tuple
 
 
@@ -26,7 +27,7 @@ def add_document_to_index(
 def compute_frequencies(doc_dict: Dict[int, List[int]]) -> Tuple[int, int]:
     """Computes Document Frequency (DF) and Collection Frequency (CF) for a term."""
     # Dry-run: doc_dict = {1: [1, 3], 2: [5]} -> DF = len(keys) = 2 docs
-    #          CF = sum([len([1, 3]), len([5])]) = 2 + 1 = 3 total occurrences across corpus
+    # CF = sum([len([1, 3]), len([5])]) = 2 + 1 = 3 total occurrences across corpus
     df = len(doc_dict)
     cf = sum(len(positions) for positions in doc_dict.values())
     return df, cf
