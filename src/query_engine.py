@@ -4,8 +4,10 @@ LEVEL 8 & 9 CHALLENGE: Positional Intersect & Query Engine
 Your goal:
 1. Level 8: Implement the Positional Intersect algorithm for exact phrase queries
    (e.g., "தமிழ் நாடு" where pos2 - pos1 == 1).
-2. Level 9: Implement Proximity queries (e.g., term1 /k term2 where 1 <= |pos2 - pos1| <= k).
+2. Level 8: Implement phrase_query() to chain multi-word phrases from disk postings.
+3. Level 9: Implement proximity_query() (e.g., term1 /k term2 where 1 <= |pos2 - pos1| <= k).
 """
+
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -23,17 +25,49 @@ def positional_intersect(
     """
     LEVEL 8: Two-pointer positional intersection algorithm.
     Finds documents where term2 appears between 1 and k positions after term1.
-    
+
     Arguments:
         p1: Postings list for term 1: [(doc_id, [pos1, pos2, ...]), ...]
         p2: Postings list for term 2: [(doc_id, [pos1, pos2, ...]), ...]
         k: Maximum forward distance allowed (k=1 for consecutive exact phrase search).
-        
+
     Returns:
         Matched postings: [(doc_id, [matched_positions_of_term2]), ...]
     """
-    # TODO 8: Implement two-pointer doc_id merge and nested position verification
-    pass
+    answer: PostingList = []
+    i, j = 0, 0
+
+    while i < len(p1) and j < len(p2):
+        doc1, pos_list1 = p1[i]
+        doc2, pos_list2 = p2[j]
+
+        if doc1 == doc2:
+            matched_positions: List[int] = []
+            m, n = 0, 0
+
+            while m < len(pos_list1) and n < len(pos_list2):
+                pos1 = pos_list1[m]
+                pos2 = pos_list2[n]
+                diff = pos1 - pos2
+
+                if 1 <= diff <= k:
+                    matched_positions.append(pos2)
+                    m += 1
+                    n += 1
+                elif pos2 <= pos1:
+                    n += 1
+                else:
+                    m += 1
+            if matched_positions:
+                answer.append((doc1, matched_positions))
+            i += 1
+            j += 1
+        elif doc1 < doc2:
+            i += 1
+        else:
+            j += 1
+
+        return answer
 
 
 def phrase_query(
@@ -44,18 +78,8 @@ def phrase_query(
     """
     Evaluates an exact multi-word phrase query (e.g. "தமிழ் நாடு").
     Returns list of matching document IDs.
-    
-    Steps:
-    1. Tokenize query using tokenize(phrase).
-    2. If any token is missing in vocab -> phrase cannot exist, return [].
-    3. Read postings for first term from disk via read_postings_from_disk().
-    4. For subsequent terms:
-       - Read their postings from disk.
-       - Intersect with running result using positional_intersect(..., k=1).
-    5. Return list of matching doc_ids: [doc_id for doc_id, _ in result].
     """
-    # TODO 8: Implement phrase query evaluation
-    pass
+    # TODO: Your code here for phrase_query!
 
 
 def proximity_query(
@@ -69,15 +93,6 @@ def proximity_query(
     LEVEL 9: Evaluates a proximity query: term1 /k term2
     Finds documents where term1 and term2 appear within k words of each other
     (1 <= |pos1 - pos2| <= k).
-    
-    Steps:
-    1. Clean / tokenize term1 and term2.
-    2. Check if both exist in vocab (if not, return []).
-    3. Read postings for term1 and term2 from disk.
-    4. For docs matching both terms:
-       Check if any pos1 in positions1 and pos2 in positions2 satisfy:
-       1 <= abs(pos1 - pos2) <= k
-    5. Return list of matching doc_ids.
     """
-    # TODO 9: Implement proximity search
+    # TODO: Your code here for proximity_query!
     pass

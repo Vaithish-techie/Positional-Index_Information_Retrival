@@ -1,0 +1,105 @@
+================================================================================
+ASSIGNMENT DELIVERABLE: 10 RARE TERMS WITH POSITIONAL INDEX
+Language: Tamil (தமிழ்)
+================================================================================
+
+[1] Term: 'அஃதாவது'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37782
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 2 ('திருக்குறள்'): Positions [366]
+
+------------------------------------------------------------
+
+[2] Term: 'அகக்கோள்களைப்'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37837
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 4 ('சூரியக் குடும்பம்'): Positions [183]
+
+------------------------------------------------------------
+
+[3] Term: 'அகண்ட'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37848
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 8 ('காவிரி ஆறு'): Positions [471]
+
+------------------------------------------------------------
+
+[4] Term: 'அகண்டு'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37859
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 8 ('காவிரி ஆறு'): Positions [466]
+
+------------------------------------------------------------
+
+[5] Term: 'அகதிகளால்'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37870
+    Block Byte Length         : 12 bytes
+    Positional Postings List  :
+      - Doc ID 30 ('சா. ஜே. வே. செல்வநாயகம்'): Positions [344]
+
+------------------------------------------------------------
+
+[6] Term: 'அகதிகளுக்கு'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37882
+    Block Byte Length         : 12 bytes
+    Positional Postings List  :
+      - Doc ID 30 ('சா. ஜே. வே. செல்வநாயகம்'): Positions [343]
+
+------------------------------------------------------------
+
+[7] Term: 'அகத்திய'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37894
+    Block Byte Length         : 12 bytes
+    Positional Postings List  :
+      - Doc ID 2 ('திருக்குறள்'): Positions [6343]
+
+------------------------------------------------------------
+
+[8] Term: 'அகத்தியமலை'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37906
+    Block Byte Length         : 12 bytes
+    Positional Postings List  :
+      - Doc ID 1 ('தமிழ்நாடு'): Positions [2391]
+
+------------------------------------------------------------
+
+[9] Term: 'அகத்தியருக்குக்'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37918
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 1 ('தமிழ்நாடு'): Positions [532]
+
+------------------------------------------------------------
+
+[10] Term: 'அகநானூற்றுப்'
+    Collection Frequency (CF) : 1
+    Document Frequency (DF)   : 1
+    Secondary Storage Offset  : Byte 37950
+    Block Byte Length         : 11 bytes
+    Positional Postings List  :
+      - Doc ID 9 ('சங்க இலக்கியம்'): Positions [150]
+
+------------------------------------------------------------
+

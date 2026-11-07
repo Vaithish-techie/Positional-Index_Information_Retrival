@@ -1,0 +1,56 @@
+================================================================================
+ASSIGNMENT DELIVERABLE: 5 TEST CASES FOR POSITIONAL INDEXER
+Language: Tamil (தமிழ்)
+================================================================================
+
+Test Case 1: Exact 2-Word Phrase Query
+Description: Searches for the consecutive phrase 'தமிழ்நாடு' (Tamil Nadu).
+Query: "தமிழ்நாடு"
+Total Matching Documents: 6
+Matched Doc IDs: [1, 3, 5, 6, 8, 47]
+Sample Matching Documents:
+  * [Doc 1] தமிழ்நாடு: "தமிழ்நாடு (Tamil Nadu) என்பது இந்தியாவின் தென் முனையில் அமைந்துள்ள மாநிலங்களில் ஒன்றாகும். தமிழகம் என்றும் பரவலாக அழைக்க..."
+  * [Doc 3] சென்னை: "சென்னை (Chennai) தமிழ்நாட்டின் தலைநகரமும், இந்தியாவின் நான்காவது பெரிய நகரமும் ஆகும். இந்தியாவின் முதல் மாநகராட்சி 1688 ..."
+  * [Doc 5] இந்திய விடுதலை இயக்கம்: "இந்திய விடுதலை இயக்கம் (Indian independence movement) என்பது பிரித்தானிய காலனித்துவ ஆட்சியை முடிவுக்குக் கொண்டுவருவதை நோ..."
+
+------------------------------------------------------------
+
+Test Case 2: Exact 3-Word Phrase Query
+Description: Searches for the exact consecutive phrase 'சூரியக் குடும்பம்' (Solar System).
+Query: "சூரியக் குடும்பம்"
+Total Matching Documents: 1
+Matched Doc IDs: [4]
+Sample Matching Documents:
+  * [Doc 4] சூரியக் குடும்பம்: "கதிரவ அமைப்பு (Solar System) அல்லது சூரிய மண்டலம் அல்லது  சூரியக் குடும்பம் என்பது கதிரவனுக்கும் அதைச் சுற்றி வரும் பொரு..."
+
+------------------------------------------------------------
+
+Test Case 3: Proximity Query (/3)
+Description: Proximity query: 'சென்னை /3 நகரம்' (terms appear within distance of 3 words).
+Query: சென்னை /3 நகரம்
+Total Matching Documents: 1
+Matched Doc IDs: [3]
+Sample Matching Documents:
+  * [Doc 3] சென்னை: "சென்னை (Chennai) தமிழ்நாட்டின் தலைநகரமும், இந்தியாவின் நான்காவது பெரிய நகரமும் ஆகும். இந்தியாவின் முதல் மாநகராட்சி 1688 ..."
+
+------------------------------------------------------------
+
+Test Case 4: Exact Multi-Word Literary Phrase
+Description: Searches for exact phrase 'இயற்கை வேளாண்மை' (Natural Agriculture).
+Query: "இயற்கை வேளாண்மை"
+Total Matching Documents: 1
+Matched Doc IDs: [6]
+Sample Matching Documents:
+  * [Doc 6] இயற்கை வேளாண்மை: "உயிர்ம வேளாண்மை (organic farming) என்பது செயற்கை உரம், செயற்கை பூச்சிக்கொல்லி மருந்துகள், செயற்கை வளர்ச்சி ஊக்கிகள், உயி..."
+
+------------------------------------------------------------
+
+Test Case 5: Negative Verification (Zero False-Positives)
+Description: Non-consecutive random words; verifies system returns empty [].
+Query: "நிலா வேதியியல் சூரியக்"
+Total Matching Documents: 0
+Matched Doc IDs: []
+Result: No documents matched (Correct behavior - 0 false positives).
+
+------------------------------------------------------------
+
